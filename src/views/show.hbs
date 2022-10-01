@@ -1,0 +1,74 @@
+<div class="container">
+    <h3 class="text-center text-white">Pokemon : <span class="text-warning">{{ pokemon.name }}</span></h3>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3 w-100 d-flex justify-content-center align-items-center">
+                <a href="javascript:history.back()" type="button" class="btn btn-light" role="button">Back</a>
+            </div>
+            <img class="img-fluid" src="{{ pokemon.sprites.other.home.front_default }}" alt="{{ pokemon.name }}">
+        </div>
+        <div class="col-6">
+            <div class="card shadow-lg mt-5 opacity-75">
+                <div class="card-body">
+                    <p class="fs-4 text-center">features</p>
+
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">pokeball available:</label>
+                        <div class="col-sm-3">
+                            <input type="text" id="pokeava" readonly class="form-control-plaintext text-danger" id="staticEmail" value="3">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="hidden" name="dni" id="dni" value="{{ pokemon.id }}">
+                        <input type="hidden" name="image" id="image" value="{{ pokemon.sprites.other.home.front_default }}">
+                        <input type="hidden" name="name" id="name" value="{{ pokemon.name }}">
+                        <div class="col-6">
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-5 col-form-label">EXP:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" readonly class="form-control-plaintext" id="experience" name="experience" value="{{pokemon.base_experience}}">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-5 col-form-label">HP:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" readonly class="form-control-plaintext" id="" name="" value="{{pokemon.stats.[0].base_stat}}">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-5 col-form-label">Attack:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" readonly class="form-control-plaintext" id="attack" name="attack" value="{{pokemon.stats.[1].base_stat}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-5 col-form-label">Defense:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" readonly class="form-control-plaintext" id="defense" name="defense" value="{{pokemon.stats.[2].base_stat}}">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-5 col-form-label">Speed:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" readonly class="form-control-plaintext" id="speed" name="speed" value="{{pokemon.stats.[5].base_stat}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 px-3 row">
+                        <input type="text" class="form-control" id="alias" name="alias" placeholder="set an alias for {{ pokemon.name }}">
+                    </div>
+
+                    <button id="btncapture" type="button" class="btn btn-warning" onclick="capture_pokemon();">capture pokemon</button>
+                    <button id="btntake" type="button" class="btn btn-success" onclick="take_pokemon();">take pokeball</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
