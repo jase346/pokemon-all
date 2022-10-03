@@ -40,11 +40,11 @@ function capture_pokemon() {
                 oportunity();
             }else{
                 Swal.fire({
-                position: 'top-end',
-                icon: 'warning',
-                title: `he's a rude pokemon, keep trying!`,
-                showConfirmButton: false,
-                timer: 2500
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: `he's a rude pokemon, keep trying!`,
+                    showConfirmButton: false,
+                    timer: 2500
                 })
             }
         console.log('I was closed by the timer')
@@ -72,22 +72,22 @@ const { value: respuesta } = await Swal.fire({
 
     if (respuesta == sum) {
         Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Very good, finish it!',
-        showConfirmButton: false,
-        timer: 1500
+            position: 'top-end',
+            icon: 'success',
+            title: 'Very good, finish it!',
+            showConfirmButton: false,
+            timer: 1500
         })
         $("#btncapture").hide('slow');
         $("#btntake").show('slow')
         $("#alias").show('slow');
     } else {
         Swal.fire({
-        position: 'top-end',
-        icon: 'warning',
-        title: 'try again',
-        showConfirmButton: false,
-        timer: 1500
+            position: 'top-end',
+            icon: 'warning',
+            title: 'try again',
+            showConfirmButton: false,
+            timer: 1500
         })
     }
 }

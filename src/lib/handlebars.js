@@ -3,16 +3,29 @@
 const helpers = {};
 
 helpers.listpokemons = (pokemons) => {
-    let items = '';
-    let iteration = pokemons.length;
-    for (let i = 0; i < iteration; i++) { 
-        items += `<tr>`;
-        items += `<td>${i+1}</td>`;
-        items += `<td><img height="40" class="app-table-avatar" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i+1}.png" alt="${pokemons[i].name}"></td>`;
-        items += `<td>${pokemons[i].name}</td>`;
-        items += `<td><button onclick="show_pokemon('${pokemons[i].name}')" type="button" class="btn btn-success btn-sm">show</button></td>`;
-        items += `</tr>`;
-    }
+    
+    items = '';
+
+    console.log(pokemons);
+    
+    pokemons.map((x) => {
+        items += '<tr>';
+        items += `<td><img width="40" class="app-table-avatar" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${x.dni}.png" alt="${x.name}"></td>`;
+        items += `<td>${x.name}</td>`;
+        items += `<td>${x.alias}</td>`;
+        items += `<td>${x.experience}</td>`;
+        items += `<td>${x.hp}</td>`;
+        items += `<td>${x.attack}</td>`;
+        items += `<td>${x.defense}</td>`;
+        items += `<td>${x.speed}</td>`;
+        items += `<td d-flex>
+            <a class="btn btn-success btn-sm" href="pokemon/show/${x.name}" role="button">show</a>
+            <button type="button" onclick="editPokemon(${x.id},'${x.alias}')" class="btn btn-primary btn-sm">change aliases</button>
+            <button type="button" onclick="deletePokemon(${x.id})" class="btn btn-danger btn-sm">release pokemon</button>
+        </td>`;
+        items += '</tr>';
+    });
+
     return items;
 }
 

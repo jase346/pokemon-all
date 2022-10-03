@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash');
 const router = require('./routes/index.js');
 
 //init
@@ -21,6 +22,7 @@ app.set('view engine', '.hbs');
 //middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(flash());
 
 //globals variables
 

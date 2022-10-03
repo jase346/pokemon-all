@@ -5,7 +5,7 @@
         <form action="/pokemon/show" method="POST">
             <div class="row mb-4">  
                 <div class="col-4">
-                    <p class=" ms-3 fs-5 text-white">amount of pokemon: <span class="badge bg-secondary">{{pokemons.count}}</span></p>
+                    <p class=" ms-3 fs-5 text-white">amount of pokemon: <span class="badge bg-secondary amount">{{pokemons.count}}</span></p>
                 </div>
             <div class="col-4">
                 <input id="name" name="name" class="form-control form-control-sm" type="text" placeholder="Name / ID" aria-label=".form-control-sm example">
@@ -33,9 +33,7 @@
                         <th class="text-warning">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {{!-- {{{listpokemons pokemons.results}}} --}}
-                </tbody>
+                <tbody id="pokemonworld"></tbody>
             </table>
             
             <nav aria-label="Page navigation example">

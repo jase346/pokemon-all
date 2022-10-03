@@ -80,7 +80,8 @@ function listprevpokemons(action = 'all') {
                 items += `</tr>`;
                 id++;
             }
-            $("tbody").html(items);
+            $("#pokemonworld").html(items);
+            $(".amount").html(data.count);
 
         $(".content-data").show('slow')
         $("#loader").hide('slow')   

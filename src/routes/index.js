@@ -1,33 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const {
-    getListPokemonsController,
-    getPokemonController }
-= require('../controllers/pokeworld-controller');
+const { getPokemonController, createPokemonController, getlistPokemonsController, editPokemonController, deletePokemonController } = require('../controllers/pokeworld-controller');
 
 router.get('/', async (req, res) => {
     res.render('home');
-    // console.log(req.params.offset);
-    // let offset = req.params.offset;
-    // try {
-    //     let pokemons = await getListPokemonsController(offset);
-    //     res.render('home', { pokemons });
-    // } catch (error) {
-    //     next(error);
-    // }
 });
 
-router.get('/pokemon/show/:name', async (req, res) => { 
-    const name = req.params.name;
-    try {
-        let pokemon = await getPokemonController(name.toLowerCase());
-        // let navigation = {};
-        // let(pokemon.next != null) navigation.next = pokemon.next
-        console.log(pokemon.stats[0].base_stat);
-        res.render('show', { pokemon });
-    } catch (error) {
-        next(error);
-    }
-})
+//capturar informacion del pokemon
+router.get('/pokemon/show/:name', getPokemonController)
+
+//guardar el pokemon
+router.post('/pokemon/show/', createPokemonController);
+
+//ver lista de pokemones
+router.get('/mypokemons', getlistPokemonsController);
+
+//editar pokemon
+router.put('/pokemon/edit/', editPokemonController);
+
+//eliminar pokemon
+router.delete('/pokemon/remove/:id', deletePokemonController);
 
 module.exports = router;
