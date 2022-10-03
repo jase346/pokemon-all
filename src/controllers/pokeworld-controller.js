@@ -13,6 +13,7 @@ const getPokemonAPiExternal = async (name) => {
     const res = await fetch(url);
     
     if (res.status >= 400) {
+        //throw new Error("Bad response from server");
         throw new Error("Bad response from server");
     }
     
@@ -60,6 +61,7 @@ const getPokemonController = async (req, res) => {
         });
     
     } catch (error) {
+        res.render('error');
         console.error(error);
     }
 }
@@ -88,6 +90,7 @@ const createPokemonController = async (req, res) => {
         });
         
     } catch (error) {
+        res.render('error');
         console.error(error);
     }
 
@@ -111,6 +114,7 @@ const getlistPokemonsController = async (req, res) => {
         });
         
     } catch (error) {
+        res.render('error');
         console.error(error);
     }
 
