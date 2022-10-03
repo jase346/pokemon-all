@@ -43,7 +43,7 @@ function listprevpokemons(action = 'all') {
     
     let url = API + '?offset=0&limit=10'
     if (action == 'next') url = NEXT;
-    if (action == 'show') url = PREV;
+    if (action == 'prev') url = PREV;
 
     $(".content-data").hide('slow')
     $("#loader").show('slow');
@@ -57,7 +57,7 @@ function listprevpokemons(action = 'all') {
                 $('.navnext').addClass('disabled');
             }
             if(data.previous != null){
-                PREV = data.next;
+                PREV = data.previous;
                 $('.navprev').removeClass('disabled');
             } else {
                 $('.navprev').addClass('disabled');
@@ -70,7 +70,7 @@ function listprevpokemons(action = 'all') {
             let pokemons = data.results;
             let iteration = pokemons.length;
             let id = 1;
-            if (offset >= 10) id = parseInt(offset);
+            if (offset >= 10) id = parseInt(offset) + 1;
             for (let i = 0; i < iteration; i++) { 
                 items += `<tr>`;
                 items += `<td>${id}</td>`;
