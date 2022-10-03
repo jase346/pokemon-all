@@ -1,11 +1,9 @@
 'use strict';
 const fetch = require('cross-fetch');
-const { query } = require('express');
-
-const API = 'https://pokeapi.co/api/v2/pokemon/';
-
 //conexion bd
 const pool = require('../database');
+
+const API = 'https://pokeapi.co/api/v2/pokemon/';
 
 
 //funcion para capturar pokemon desde la api

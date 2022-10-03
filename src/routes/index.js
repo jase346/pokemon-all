@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express');
 const router = express.Router();
 const { getPokemonController, createPokemonController, getlistPokemonsController, editPokemonController, deletePokemonController } = require('../controllers/pokeworld-controller');
